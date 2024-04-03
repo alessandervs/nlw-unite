@@ -1,0 +1,51 @@
+import fastify from "fastify"
+import z from "zod"
+import { PrismaClient } from "@prisma/client"
+import { generateSlug } from "./utils/generateSlug"
+
+const SERVER_PORT = Number(process.env.SERVER_PORT)
+const app = fastify()
+const prisma = new PrismaClient({
+  log:['query', 'error']
+})
+
+app.get('/', (req, reply) =>{
+  return reply.status(200).send("Hello NLW Unite")
+})
+
+app.post('/events', async (req , reply) =>{
+  const createEventSchema = z.object({
+    title:  z.string().min(4),
+    details: z.string().nullable(),
+    maximumAttendees: z.number().int().positive().nullable()
+  })
+  const {
+    title,
+    details,
+    maximumAttendees
+  } = createEventSchema.parse(req.body)
+  const slug = generateSlug(title)
+
+  const eventWithSameSlug = await prisma.event.findUnique({
+    where: {
+      slug,
+    }
+  })
+
+  if(eventWithSameSlug !== null){
+    reply.status(401).send('Another event with same title already exists.')
+  }
+  const event = await prisma.event.create({
+    data: {
+      title,
+      details,
+      maximumAttendees,
+      slug,
+    }
+  }) 
+  return reply.status(201).send({eventId: event.id})
+})
+
+app.listen({port: SERVER_PORT}).then(()=>{
+  console.log("Http Server Running!")
+})
