@@ -9,11 +9,23 @@ export async function getEvent(app: FastifyInstance){
   .withTypeProvider<ZodTypeProvider>()
   .get('/events/:eventId',{
     schema: {
+      summary: "Get a event",
+      tags: ['Event'],
       params: z.object({
         eventId: z.string().uuid()
       }),
       response: {
-       
+       201: z.object({
+        event: z.object({
+          id: z.string().uuid(),
+          title: z.string(),
+          details: z.string().nullable(),
+          slug: z.string(),
+          maximumAttendees: z.number().int().nullable(),
+          amountAttendee: z.number().int().nullable()
+        })
+       }),
+       401: z.object({ })
       },
     },
   }, async (request, reply)=>{
