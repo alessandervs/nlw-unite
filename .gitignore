@@ -132,3 +132,4 @@ dist
 # server-node
 server-node/node_modules/
 server-node/.env
+dev-ops/
