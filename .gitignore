@@ -133,3 +133,4 @@ dist
 server-node/node_modules/
 server-node/.env
 dev-ops/
+nlw-deploy-cross/example-private-repository.yaml
