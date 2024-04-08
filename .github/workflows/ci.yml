@@ -35,7 +35,7 @@ jobs:
         docker push alessandervictor/nlw.service.passin:latest
 
     - name: Update iamge tag
-      uses: fjogeleit/yaml-update-action@github.com:alessandervs/nlw-unite.git
+      uses: fjogeleit/yaml-update-action@main
       with:
         branche: main
         valueFile: 'server-node/deploy/values.yaml'
