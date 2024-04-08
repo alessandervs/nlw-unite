@@ -13,7 +13,7 @@ spec:
     path: server-node/deploy
   destination:
     server: https://kubernetes.default.svc
-    namespace: nlw-passin
+    namespace: nlw
   syncPolicy:
     automated:
       prune: true

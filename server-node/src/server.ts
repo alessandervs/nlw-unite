@@ -11,6 +11,7 @@ import { getAttendeeBadge } from "./routes/get-attendee-badge"
 import { checkIn } from "./routes/check-in"
 import { getEventAttendees } from "./routes/get-event-attendess"
 import { errorHandler } from "./error-handler"
+import { health } from "./routes/health"
 
 const SERVER_PORT = Number(process.env.SERVER_PORT)
 const app = fastify()
@@ -44,6 +45,7 @@ app.register(getEvent)
 app.register(getAttendeeBadge)
 app.register(checkIn)
 app.register(getEventAttendees)
+app.register(health)
 
 app.setErrorHandler(errorHandler)
 

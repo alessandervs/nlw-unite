@@ -10,3 +10,11 @@ metadata:
 stringData:
   type: git
   url: git@github.com:alessandervs/nlw-unite.git
+  sshPrivateKey: |
+    -----BEGIN OPENSSH PRIVATE KEY-----
+    b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+    QyNTUxOQAAACDdU3CYOD7EPItnQMIF+nv3RzkiTqDw7yS6spoEqQX7pwAAAKCW6e1Dlunt
+    QwAAAAtzc2gtZWQyNTUxOQAAACDdU3CYOD7EPItnQMIF+nv3RzkiTqDw7yS6spoEqQX7pw
+    AAAEC1L+T77cu5RPH8RtwXgo84FdC2nEGmlX+60/ztkVxz1d1TcJg4PsQ8i2dAwgX6e/dH
+    OSJOoPDvJLqymgSpBfunAAAAF3NhbmRlcnBhbnQxQGhvdG1haWwuY29tAQIDBAUG
+    -----END OPENSSH PRIVATE KEY-----
