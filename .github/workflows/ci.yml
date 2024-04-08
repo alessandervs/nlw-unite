@@ -37,7 +37,7 @@ jobs:
     - name: Update iamge tag
       uses: fjogeleit/yaml-update-action@main
       with:
-        branche: main
+        branch: main
         valueFile: 'server-node/deploy/values.yaml'
         propertyPath: 'image.tag'
         value: ${{ steps.generate_sha.outputs.sha}}
